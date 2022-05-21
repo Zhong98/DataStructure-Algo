@@ -53,8 +53,8 @@ class DoubleNewLinkedData {
     }
 
     /**
-     * 数据量是N
-     * find方法最坏的情况是position为N-1
+     * The amount of data is N
+     * The worst sistuation of method find is position=N-1
      * 6n+5n*(N-1)--->O(N)
      */
 
@@ -67,8 +67,8 @@ class DoubleNewLinkedData {
     }
 
     /**
-     * 数据量是N
-     * findPosition最坏情况下，是在最后一个位置找到对应元素
+     * The amount of data is N
+     * The worst sistuation of method findPosition is to find an element in the last position
      * i->0-size-1
      * 4n+5n*(0)+2n
      * 4n+5n*1+2n
@@ -89,7 +89,7 @@ class DoubleNewLinkedData {
         DoubleNewLinkedData.Iterator iterator = this.iterator();
         while (iterator.hasNext()) {
             /**
-             * 避免使用了getUnit方法，next()时间复杂度为O(1)，所以循环N次，对比之前，findPosition的时间复杂度变为O(N)
+             * avoid using method getUnit，next() time complexity is O(1)，So loop N times, before the comparison, the time complexity of findPosition becomes O(N)
              */
             if (x == iterator.next().data) {
                 return iterator.pointer;
@@ -107,7 +107,7 @@ class DoubleNewLinkedData {
 
     /**
      * O(N)
-     * 最坏情况是在倒数第二个结点后面插入
+     * The worst case is to insert after the penultimate node
      */
     public boolean insert(int x, int position) {
         if (position < 0 || position >= size) {
@@ -148,8 +148,8 @@ class DoubleNewLinkedData {
             throw new RuntimeException();
         }
         if (position == size - 1) {
-            lastUnit = lastUnit.last; //倒数第二个变为尾节点
-            lastUnit.next = null; //切断新lastUnit与之前的lastUnit的连接
+            lastUnit = lastUnit.last; //The second to last becomes the last node
+            lastUnit.next = null; //Disconnect the new lastUnit from the previous lastUnit
         } else {
             Unit dataBefore = getUnit(position - 1);
             Unit dataAfter = getUnit(position + 1);
@@ -169,13 +169,13 @@ class DoubleNewLinkedData {
 
     class Iterator {
         int pointer = 0;
-        Unit unitNow; //记录当前节点
+        Unit unitNow; 
 
         Unit next() {
             if (pointer == 0) {
                 unitNow = firstUnit;
             } else {
-                unitNow = unitNow.next; //0之后，每次只用调用一次next，从而避免使用getUnit方法
+                unitNow = unitNow.next; 
             }
             pointer++;
             return unitNow;
