@@ -48,8 +48,8 @@ class NewLinkedData {
     }
 
     /**
-     * 数据量是N
-     * findPosition最坏情况下，是在最后一个位置找到对应元素
+     * The amount of data is N
+     * The worst case of findPosition is to find the corresponding element in the last position
      * i->0-size-1
      * 4n+5n*(0)+2n
      * 4n+5n*1+2n
@@ -75,7 +75,7 @@ class NewLinkedData {
 
     /**
      * O(N)
-     * 最坏情况是在倒数第二个结点后面插入
+     * The worst case is to insert after the penultimate node
      */
     boolean insert(int x, int position) {
         if (position < 0 || position >= size) {
@@ -120,6 +120,6 @@ class NewLinkedData {
         Unit unitTemp;
         unitTemp=firstUnit;
         firstUnit=lastUnit;
-        lastUnit=unitTemp; //将头节点和尾节点对调
+        lastUnit=unitTemp; //reverse the head and tail
     }
 }
